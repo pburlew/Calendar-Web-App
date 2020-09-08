@@ -29,6 +29,7 @@ rel="stylesheet"
 <p id="currentDay" class="lead"></p>
 </header>
 <div class="container">
+
 <!-- Timeblocks go here -->
 <div id ="hour-8" class ="row time-block past">
 <div class="col-md-1 hour">
@@ -93,7 +94,8 @@ rel="stylesheet"
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-17" class ="row time-block past">
+<div id ="hour-17" class ="row time-block future"> 
+  <!-- changed this to future to check  -->
 <div class="col-md-1 hour">
 5 PM
 </div>
@@ -108,18 +110,55 @@ rel="stylesheet"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script>
 
-var currentTime;
+//define vars
+var currentTime = parseInt(moment().format('LT'));
+console.log(currentTime);
 var currentDay = document.getElementById("currentDay");
+// var hourDisplay= hoursOfDay[i].parseInt; // which hour is it right now?
+var saveBtn = document.getElementsByClassName("saveBtn");
+var hoursOfDay = [[hour8, "8"], [hour9, "9"], [hour10, "10"], [hour11, "11"], [hour12,"12"], [hour13, "13"], [hour14,"14"], [hour15, "15"], [hour16, "16"] , [ hour17, "17"]];
+var hour8 = document.getElementById("hour-8");
+var hour9 = document.getElementById("hour-9");
+var hour10 = document.getElementById("hour-10");
+var hour11 = document.getElementById("hour-11");
+var hour12 = document.getElementById("hour-12");
+var hour13 = document.getElementById("hour-13");
+var hour14 = document.getElementById("hour-14");
+var hour15 = document.getElementById("hour-15");
+var hour16= document.getElementById("hour-16");
+var hour17 = document.getElementById("hour-17");
+// var to change current hour to parseInt - DONE ABOVE
+// var to parseInt array
+
+
 
 // this displays the current day and time at the top of the page.
  function showCurrentDay(){
   currentDay.innerText= (moment().format('LLL') );
+
  }
  showCurrentDay();
+
+
+// this function compares the current time to the hour blocks. It assigns the css class depending on if the timeblock is past, present, or future.
+ function pastOrFutureHour(){
+  for (var i = 0; i < hoursOfDay.length; i++) {
+    if (parseInt(hoursOfDay[i][1]) === currentTime) {
+      $("<div>").css(".present");
+    }
+    if (parseInt(hoursOfDay[i][1]) < currentTime) {
+      $("<div>").css(".future");
+    }
+    if (hoursOfDay[i] > currentTime) {
+      $("#hour").css(".past");
+    }
+  }
+ }
+ pastOrFutureHour();
+
+
+
 </script>
-
-
-
 </body>
 </html>
 
@@ -135,7 +174,7 @@ create save button
 include a class for all save buttons (.saveBtn)
 ----------------------------------------------------------------------------------------
 JS
-add current day and date with moments to #currentDay
+add current day and date with moments to #currentDay- DONE
 function readFromLocalStorage ()
 ***** this is to look for anything saved previously in local storage
 use for loop
