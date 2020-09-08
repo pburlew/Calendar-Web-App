@@ -30,21 +30,21 @@ rel="stylesheet"
 </header>
 <div class="container">
 <!-- Timeblocks go here -->
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-8" class ="row time-block past">
 <div class="col-md-1 hour">
 8 AM
 </div>
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-9" class ="row time-block past">
 <div class="col-md-1 hour">
 9 AM
 </div>
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-10" class ="row time-block past">
 <div class="col-md-1 hour">
 10 AM
 </div>
@@ -58,42 +58,42 @@ rel="stylesheet"
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-12" class ="row time-block past">
 <div class="col-md-1 hour">
 12 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-13" class ="row time-block past">
 <div class="col-md-1 hour">
 1 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-14" class ="row time-block past">
 <div class="col-md-1 hour">
 2 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-15" class ="row time-block past">
 <div class="col-md-1 hour">
 3 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-16" class ="row time-block past">
 <div class="col-md-1 hour">
 4 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
 <button class="btn saveBtn col-md-1"> </button>
 </div>
-<div id ="hour-11" class ="row time-block past">
+<div id ="hour-17" class ="row time-block past">
 <div class="col-md-1 hour">
 5 PM
 </div>
@@ -104,24 +104,33 @@ rel="stylesheet"
 
 
 </div>
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+
+var currentTime;
+var currentDay = document.getElementById("currentDay");
+
+// this displays the current day and time at the top of the page.
+ function showCurrentDay(){
+  currentDay.innerText= (moment().format('LLL') );
+ }
+ showCurrentDay();
+</script>
+
+
+
 </body>
 </html>
 
 <!-- PSEUDO CODE Homework 5 (calendar)
 HTML
-create time blocks for each hour from 9am to 5pm in HTML
-create div container for each hour time slot
-create text of div to show the relevant hour slot (9-17 (24 hour clock))
+create time blocks for each hour from 9am to 5pm in HTML -- DONE 
+create div container for each hour time slot-- DONE 
+create text of div to show the relevant hour slot (9-17 (24 hour clock))-- DONE
 create text area where the events of the hour are typed by user
 include class designation from CSS (.description)
-include specific ID for each hour
+include specific ID for each hour- DONE 
 create save button
 include a class for all save buttons (.saveBtn)
 ----------------------------------------------------------------------------------------
