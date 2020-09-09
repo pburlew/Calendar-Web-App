@@ -36,71 +36,72 @@ rel="stylesheet"
 8 AM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i> </button>
+
 </div>
 <div id ="hour-9" class ="row time-block past">
 <div class="col-md-1 hour">
 9 AM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i> </button>
 </div>
 <div id ="hour-10" class ="row time-block past">
 <div class="col-md-1 hour">
 10 AM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i> </button>
 </div>
 <div id ="hour-11" class ="row time-block past">
 <div class="col-md-1 hour">
 11 AM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i> </button>
 </div>
 <div id ="hour-12" class ="row time-block past">
 <div class="col-md-1 hour">
 12 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i> </button>
 </div>
 <div id ="hour-13" class ="row time-block past">
 <div class="col-md-1 hour">
 1 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1">  SAVE <i class="far fa-save"></i></button>
 </div>
 <div id ="hour-14" class ="row time-block past">
 <div class="col-md-1 hour">
 2 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1">  SAVE <i class="far fa-save"></i></button>
 </div>
 <div id ="hour-15" class ="row time-block past">
 <div class="col-md-1 hour">
 3 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i></button>
 </div>
 <div id ="hour-16" class ="row time-block past">
 <div class="col-md-1 hour">
 4 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i> </button>
 </div>
-<div id ="hour-17" class ="row time-block future"> 
+<div id ="hour-17" class ="row time-block past"> 
   <!-- changed this to future to check  -->
 <div class="col-md-1 hour">
 5 PM
 </div>
 <textarea class="col-md-10 description"></textarea>
-<button class="btn saveBtn col-md-1"> </button>
+<button class="btn saveBtn col-md-1"> SAVE <i class="far fa-save"></i></button>
 </div>
 
 
@@ -111,7 +112,8 @@ rel="stylesheet"
 <script>
 
 //define vars
-var currentTime = parseInt(moment().format('LT'));
+var currentTime = parseInt(moment().format('HH:mm:ss'));
+
 console.log(currentTime);
 var currentDay = document.getElementById("currentDay");
 // var hourDisplay= hoursOfDay[i].parseInt; // which hour is it right now?
@@ -132,9 +134,9 @@ var hour17 = document.getElementById("hour-17");
 
 
 
-// this displays the current day and time at the top of the page.
+// this displays the current day and time at the top of the page. currently working.
  function showCurrentDay(){
-  currentDay.innerText= (moment().format('LLL') );
+  currentDay.innerText= (moment().format('HH:mm:ss') );
 
  }
  showCurrentDay();
@@ -144,13 +146,15 @@ var hour17 = document.getElementById("hour-17");
  function pastOrFutureHour(){
   for (var i = 0; i < hoursOfDay.length; i++) {
     if (parseInt(hoursOfDay[i][1]) === currentTime) {
-      $("<div>").css(".present");
+      $(this).removeClass(".past");
+      $(this).addClass(".present");
     }
     if (parseInt(hoursOfDay[i][1]) < currentTime) {
-      $("<div>").css(".future");
+      $(this).removeClass(".past");
+      $(this).addClass(".future");
     }
-    if (hoursOfDay[i] > currentTime) {
-      $("#hour").css(".past");
+    if (parseInt(hoursOfDay[i][1]) > currentTime) {
+      $(this).addClass(".past");
     }
   }
  }
