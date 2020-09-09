@@ -140,7 +140,7 @@ var hour17 = document.getElementById("hour-17");
  showCurrentDay();
 
 
-// this function compares the current time to the hour blocks. It assigns the css class depending on if the timeblock is past, present, or future.
+// this function compares the current time to the hour blocks. It assigns the css class depending on if the timeblock is past, present, or future. Current hour updates not working
  function pastOrFutureHour(){
   for (var i = 0; i < hoursOfDay.length; i++) {
     if (parseInt(hoursOfDay[i][1]) === currentTime) {
@@ -155,6 +155,17 @@ var hour17 = document.getElementById("hour-17");
   }
  }
  pastOrFutureHour();
+
+
+// this function stores user data in local storage. seems to be working
+function writeToLocalStorage(){
+  saveBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  var userInput = localStorage.getItem("Container");
+
+  
+  })};
+  writeToLocalStorage();
 
 
 
@@ -190,3 +201,5 @@ function writeToLocalStorage ()
 - trim text, trim schedule hour
 - send to local storage
 call readFromLocalStorage(); -->
+
+<!-- localStorage.setItem  -->
