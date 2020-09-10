@@ -118,7 +118,8 @@ console.log(currentTime);
 var currentDay = document.getElementById("currentDay");
 // var hourDisplay= hoursOfDay[i].parseInt; // which hour is it right now?
 var saveBtn = document.getElementsByClassName("saveBtn");
-var hoursOfDay = [[hour8, "8"], [hour9, "9"], [hour10, "10"], [hour11, "11"], [hour12,"12"], [hour13, "13"], [hour14,"14"], [hour15, "15"], [hour16, "16"] , [ hour17, "17"]];
+console.log(saveBtn);
+var hoursOfDay = [[hour8, "23"], [hour9, "9"], [hour10, "10"], [hour11, "11"], [hour12,"12"], [hour13, "13"], [hour14,"14"], [hour15, "15"], [hour16, "16"] , [ hour17, "17"]];
 var hour8 = document.getElementById("hour-8");
 var hour9 = document.getElementById("hour-9");
 var hour10 = document.getElementById("hour-10");
@@ -129,6 +130,7 @@ var hour14 = document.getElementById("hour-14");
 var hour15 = document.getElementById("hour-15");
 var hour16= document.getElementById("hour-16");
 var hour17 = document.getElementById("hour-17");
+
 // var to change current hour to parseInt - DONE ABOVE
 // var to parseInt array
 
@@ -150,6 +152,8 @@ var hour17 = document.getElementById("hour-17");
       $(this).addClass(".present");
     }
     if (parseInt(hoursOfDay[i][1]) < currentTime) {
+      
+      console.log("my current time is:" + currentTime );
       $(this).removeClass(".past");
       $(this).addClass(".future");
     }
@@ -162,15 +166,25 @@ var hour17 = document.getElementById("hour-17");
 
 
 // this function stores user data in local storage. seems to be working
-function writeToLocalStorage(){
-  saveBtn.addEventListener("click", function(event) {
-  event.preventDefault();
-  var userInput = localStorage.getItem("Container");
-
+function addListenersToBtns(){
+  //write a for loop to go through all save buttons and attach an event listener to each one
+  for(var i = 0; i < saveBtn.length; i++){
+  saveBtn[i].addEventListener("click", writeToLocalStorage) 
   
-  })};
-  writeToLocalStorage();
+  }
+};
+  addListenersToBtns();
 
+  function writeToLocalStorage(){
+    event.preventDefault();
+    //using the this keyword, 
+    var userText = $(this).text;
+    //double check what the 1st arg represents in set item 
+    localStorage.setItem("input", userText);
+    console.log("i've been clicked");
+  
+    };
+  
 
 
 </script>
