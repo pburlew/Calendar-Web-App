@@ -116,9 +116,8 @@ var currentTime = parseInt(moment().format('HH:mm:ss'));
 
 console.log(currentTime);
 var currentDay = document.getElementById("currentDay");
-// var hourDisplay= hoursOfDay[i].parseInt; // which hour is it right now?
 var saveBtn = document.getElementsByClassName("saveBtn");
-console.log(saveBtn);
+
 var hoursOfDay = [[hour8, "23"], [hour9, "9"], [hour10, "10"], [hour11, "11"], [hour12,"12"], [hour13, "13"], [hour14,"14"], [hour15, "15"], [hour16, "16"] , [ hour17, "17"]];
 var hour8 = document.getElementById("hour-8");
 var hour9 = document.getElementById("hour-9");
@@ -131,8 +130,6 @@ var hour15 = document.getElementById("hour-15");
 var hour16= document.getElementById("hour-16");
 var hour17 = document.getElementById("hour-17");
 
-// var to change current hour to parseInt - DONE ABOVE
-// var to parseInt array
 
 
 
@@ -190,34 +187,3 @@ function addListenersToBtns(){
 </script>
 </body>
 </html>
-
-<!-- PSEUDO CODE Homework 5 (calendar)
-HTML
-create time blocks for each hour from 9am to 5pm in HTML -- DONE 
-create div container for each hour time slot-- DONE 
-create text of div to show the relevant hour slot (9-17 (24 hour clock))-- DONE
-create text area where the events of the hour are typed by user
-include class designation from CSS (.description)
-include specific ID for each hour- DONE 
-create save button
-include a class for all save buttons (.saveBtn)
-----------------------------------------------------------------------------------------
-JS
-add current day and date with moments to #currentDay- DONE
-function readFromLocalStorage ()
-***** this is to look for anything saved previously in local storage
-use for loop
-- read value from time property
-- assign as text back in element (using its class (.description) and id (specific to each hour)
-- check current hour vs time slot (to determine color of text area: gray, red or white)
-- assign proper class (.past .present .future) based on comparison to current hour (<,>, === or <=, >=, ===)
-function writeToLocalStorage ()
-**** this is to save a value from the text area to local storage, using the hour as the key when save button is clicked -->
-<!-- add click event to save button class to run function
-- read text from text area (class = "description", should be parent of save button)
-- read schedule hour
-- trim text, trim schedule hour
-- send to local storage
-call readFromLocalStorage(); -->
-
-<!-- localStorage.setItem  -->
